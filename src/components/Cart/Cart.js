@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart ;
@@ -34,6 +35,7 @@ const Cart = (props) => {
             <p><small>Shipping Cost: ${shipping}</small></p>
             <p><small>Tax + VAT: ${tax}</small></p>
             <p>Total Price: ${ grandTotal }</p>
+            <button className="add-to-order-btn">Order Now</button>
             
         </div>
     );
