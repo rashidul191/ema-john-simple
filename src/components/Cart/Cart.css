@@ -6,3 +6,15 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.style-cart{
+    margin-left: 200px;
+    margin: 20px;
+    padding:  2px 0px 0px 100px;
+    border-right: 3px solid green;
+    border-bottom: 3px solid green;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px gray;
+    height: 300px;
+    width: 235px;
+
+}
