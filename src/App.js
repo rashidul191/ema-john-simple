@@ -13,14 +13,23 @@ import Nomatch from './components/Nomatch/Nomatch';
 import Inventor from './components/Inventor/Inventor';
 import ProductInof from './components/ProductInof/ProductInof';
 import Shipment from './components/Shipment/Shipment';
+import { createContext } from 'react';
+import { useState } from 'react';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 
-function App() {
+export const UserContext = createContext();
+
+function App(props){
+
+  const [loggedInUser, setLoggedInUser] = useState ({});
   return (
-    <div >
-      <Header></Header>
+    <UserContext.Provider value = {[loggedInUser, setLoggedInUser]}>
+      <h3>email: {loggedInUser.email}</h3>
+     
         <Router>
+        <Header></Header>
+        
           <Switch>
-
             <Route exact path="/">
               <Shop></Shop>
             </Route>
@@ -36,13 +45,13 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/shipment">
+            <PrivetRoute path="/shipment">
               <Shipment></Shipment>
-            </Route>
+            </PrivetRoute>
 
-            <Route path="/inventor">
+            <PrivetRoute path="/inventor">
               <Inventor></Inventor>
-            </Route>
+            </PrivetRoute>
 
             <Route path="/product/:productKey">
               <ProductInof></ProductInof>
@@ -51,10 +60,10 @@ function App() {
             <Route path="*">
               <Nomatch></Nomatch>
             </Route>
-
           </Switch>
+
         </Router>
-    </div>
+    </UserContext.Provider>
   );
 }
 
