@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 const Shop = () => {
+    document.title ="Shop";
     const first10 = fakeData.slice(0,50);
     const [products, setProducts] = useState(first10);
     const [cart , setCart] = useState([]);

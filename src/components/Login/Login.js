@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, handleFbLogIn, handleGoogleSignIn, hand
 
 
 function Login() {
+  document.title ="Login";
   const [newUser, setNewUser] = useState(false);
  const [user, setUser] = useState({
    isSignedIn: false,
@@ -94,10 +95,10 @@ const signOut = ()=>{
     <div className="App">
      {
        user.isSignedIn ? <button className="sign-btn-style" onClick={signOut}>Sign Out</button> :
-      <button className="sign-btn-style" onClick={googleSignIn}>Sign In</button>
+      <button onClick={googleSignIn}>Sign In With Google</button>
      }
      <br/>
-     <button onClick={fbSignIn}>Sign In using Facebook</button>
+     <button onClick={fbSignIn}>Sign In With Facebook</button>
      {
        user.isSignedIn && <div>
               <h2>Name : {user.name}</h2>
