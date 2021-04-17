@@ -15,6 +15,7 @@ const Shop = () => {
     const [cart , setCart] = useState([]);
 
     useEffect(()=>{
+        
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
         const previousCart = productKeys.map (existingKey => {
@@ -47,11 +48,7 @@ const Shop = () => {
         <div className ="twin-container">
             <div className="products-container">
                 {
-                 products.map(pd => <Products
-                 key = {pd.key}
-                    showAddToCart ={true}
-                    handleAddProduct ={handleAddProduct}
-                     product ={pd}> </Products> )
+                 products.map(pd => <Products key = {pd.key} showAddToCart ={true} handleAddProduct ={handleAddProduct} product ={pd}> </Products> )
                 }
             </div>
             <div className="card-container">
